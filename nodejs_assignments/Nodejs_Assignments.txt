@@ -1,0 +1,55 @@
+1. Create a program that adds 2 numbers.
+	
+    	First Number:<input id="first" value=""><br><br>
+    	Second Number:<input id="second" value=""><br><br>
+    	Sum is:<p id="answer"></p>
+    	<button type="button" onclick="myFunction()">Submit</button>
+    	<script>
+        function myFunction() {
+    		var x, y;  
+    		x = document.getElementById("first").value;
+    		y = document.getElementById("second").value; 
+    		document.getElementById("answer").innerHTML = Number(x) +Number(y);
+	}
+    	
+2. Create a program that finds the highest number out of 3 numbers.
+	function maxNum(){
+    	var a=25;
+    	var b=89;
+    	var c=4;
+    	if(a>b && a>c)
+    	{
+        	console.log("a is greater:"+a);
+    	}else 
+    	if(b>a &&b>c)
+    	{
+        	console.log("b is greater: "+b);
+    	}
+    	else
+    	console.log("c is greater:"+c);
+	}
+	maxNum();
+
+3. Create a program to find the factorial of a number.
+	function factorial(n)
+	{
+    
+   	 if(n==0 || n==1)
+    	return 1;
+    	else
+    	return n*factorial(n-1);
+      
+	}
+
+	console.log(factorial(5));
+4. Create a program to find if the number is prime or not.
+	function prime(value) {
+    	for(var i = 2; i < value; i++) {
+        if(value % i === 0) {
+            return false;
+        }
+    	}
+    	return true;
+	}
+
+	console.log(prime(24));
