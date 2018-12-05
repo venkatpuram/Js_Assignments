@@ -1,5 +1,5 @@
-var amithab={name:"amithab",surname:"bachan"};
-var abhishek=Object.create(amithab);
+amithab={name:"amithab",surname:"bachan"};
+abhishek=Object.create(amithab);
 abhishek.name="abhishek"
 abhishek.surname="BACHAN"
 console.log(amithab.name);
