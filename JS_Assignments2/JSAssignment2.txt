@@ -39,6 +39,7 @@ Create minimum 2 objects and display the object's detail uisng global print meth
 
 	object2.js:
 
+	
 	function person(fname,lname,age,skills,dateofbirth,address,married,profession)
 	{
     		this.fname=fname;
@@ -51,18 +52,60 @@ Create minimum 2 objects and display the object's detail uisng global print meth
     		this.address=address;
 
 	}
-	amithab=new person("amithab","Bachan",21,"Java","15/08/1997",{city:"mumbai",picode:"400038"},"false","developer");
-	abhishek=new person("abhishek","",22,"java","04/12/1996","false","sr developer");
+	amithab=new person("amithab","Bachan",60,"Java","15/08/1958",{city:"mumbai",picode:"400038"},"false","developer");
 	var abhishek=Object.create(amithab);
+	abhishek.fname="abhishek";
+	abhishek.age="35";
+	abhishek.skills="java";
+	abhishek.dateofbirth="04/10/1983";
+	abhishek.married="false";
+	abhishek.profession="developer"
 	print=function()
 	{
     		console.log(amithab);
-    		console.log(abhishek.lname);
+    		console.log(abhishek.fname);
     		console.log(abhishek.address);
 	}();
 
 
 3. Modify the above code to create third object as "Aaradhya", this object shares the common properties from amitabh as well as abhishek accordingly demostrate on your own.
+
+	object3.js:
+
+	function person(fname,lname,age,skills,dateofbirth,address,married,profession)
+	{
+    		this.fname=fname;
+    		this.lname=lname;
+    		this.age=age;
+    		this.skills=skills;
+    		this.dateofbirth=dateofbirth;
+    		this.married=married;
+    		this.profession=profession;
+    		this.address=address;
+
+	}
+	var amithab=new person("amithab","Bachan",21,"Java","15/08/1997",{city:"mumbai",picode:"400038"},"false","developer");
+	var abhishek=Object.create(amithab);
+	abhishek.fname="abhishek";
+	abhishek.age="35";
+	abhishek.skills="java";
+	abhishek.dateofbirth="04/10/1983";
+	abhishek.married="false";
+	abhishek.profession="developer"
+
+	aaradhya=Object.create(abhishek);
+	aaradhya.fname="aaradhya";
+	aaradhya.age="7";
+	aaradhya.dateofbirth="10/10/2011";
+
+	print=function()
+	{
+    		console.log(amithab);
+    		console.log(abhishek.fname);
+    		console.log(abhishek.dateofbirth);
+    		console.log(aaradhya);
+    		console.log(aaradhya.address);
+	}();
 
 
 4. Create a JS program to implement below:-
@@ -86,5 +129,87 @@ use savings account object to call a function withdraw(amount), that will subtra
 use current account object to calla function withdraw(amount), that will subtract the amount from the accountBalance, Note that accountBalance should not go below negative of odLimit.
 
 Now, call getCurrentBalance() from both the object, that will return the accountBalance of the object used to call this method.
+
+	BankAccount.js:
+
+	class BankAccount{
+    		constructor(accountNumber,accountHolderName,accountBalance)
+    		{
+        		this.accountNumber=accountNumber;
+        		this.accountHolderName=accountHolderName;
+        		this.accountBalance=accountBalance;
+    		}
+    		deposit(amount)
+    		{
+        		this.accountBalance += amount;
+    		}
+	}
+	class Savings extends BankAccount
+	{
+    		constructor(accountNumber,accountHolderName,accountBalance, isSalary)
+    		{
+        		super(accountNumber,accountHolderName,accountBalance);
+        		this.isSalary=isSalary;
+        		this.print=function()
+        		{
+            			console.log(this.accountNumber);
+            			console.log(this.accountHolderName);
+            			console.log(this.accountBalance);
+            			console.log(this.isSalary);
+        		}
+
+    		}
+    		withdraw(amount)
+    		{
+        		if(this.accountBalance<parseInt(amount))
+        		{
+            			console.log("insufficient funds");
+        		}
+        		else
+        		{
+        			this.accountBalance=this.accountBalance-amount;
+        		}
+    		}
+	}
+
+	var savings = new Savings(501212011,"venkat",9000,true);
+	savings.deposit(3000);
+	console.log(savings.accountBalance);
+
+	savings.withdraw(10000);
+	console.log(savings.accountBalance);
+
+	class Current extends BankAccount
+	{
+    		constructor(accountNumber,accountHolderName,accountBalance, odLimit)
+    		{
+        		super(accountNumber,accountHolderName,accountBalance);
+        		this.odLimit=odLimit;
+        		this.print=function()
+        		{
+            			console.log(this.accountNumber);
+            			console.log(this.accountHolderName);
+            			console.log(this.accountBalance);
+            			console.log(this.odLimit);
+        		}
+
+    		}
+    		withdraw(amount)
+    		{
+        		if(this.accountBalance+this.odLimit<parseInt(amount))
+        		{
+            			console.log("Insufficient funds")
+        		}
+        		else
+        		{
+            			this.accountBalance -= amount;
+        		}
+    		}   
+	}
+
+	var current = new Current(510225021,"harish",10000,15000);
+	current.withdraw(9000);
+	console.log(current.accountBalance);
+
 
 
