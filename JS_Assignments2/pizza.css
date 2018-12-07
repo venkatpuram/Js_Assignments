@@ -1,0 +1,41 @@
+.name{
+    margin: 6px;
+    padding: 6px;
+}
+.email{
+    margin: 6px;
+    padding: 6px;
+}
+.Toppings{
+    margin: 6px;
+    padding: 6px;
+}
+input{
+    padding: 6px;
+    margin-right: 6px;
+}
+b{
+    padding: 6px;
+    margin: 6px;
+}
+textarea{
+    width: 250px;
+    height: 80px;
+}
+.Address{
+    padding: 6px;
+    margin: 6px;
+}
+.ActionButtons{
+    padding: 6px;
+    margin: 6px;
+}
+  table, td {
+    border: 1px solid black;
+        border-collapse: collapse;
+}
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {background-color: #eee;}
